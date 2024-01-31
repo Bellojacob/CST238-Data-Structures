@@ -75,19 +75,29 @@ public class HW01a_Distinct {
 
         // look at each element in the array
         // this what an example array looks like
-        // [1, 3, 2, 3, 2]
+        // myArray [1, 3, 2, 3, 2]
+        // second array [1,3,2,3,2]
 
+
+        int [] secondArray = new int[firstNumber];
+        int count =0;
 
         for (i = 0; i < myArray.length; i++){
-            int count = 1;
-            for (int j=1; j < myArray.length -1; j++){
-                if (myArray[i] == myArray[j]){
-                    count++;
-                } else {
+            secondArray[i] = myArray[i];
+        }
 
+
+
+        for (i=0; i<myArray.length; i++){
+            int currentNum = myArray[i];
+            int arrayMatch = 0;
+            for (int j =0; j < secondArray.length; j++){
+                if (currentNum == myArray[i]){
+                    arrayMatch++;
                 }
             }
-            System.out.println(myArray[i] + "\t" + count);
+
+            System.out.println("The number is " + myArray[i] + " and it is used " + arrayMatch + " times");
         }
 
 
