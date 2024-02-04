@@ -1,0 +1,23 @@
+Let's Read data from files!
+
+A very simple way to read from a text file is to use a filereader and scanner
+
+import java.io.*
+add throws clause to main
+
+FileReader filereader = new FileReader("myFilePath.txt");
+Scanner filescanner = new Scanner(filereader);
+
+to read the entire content (for Strings) of a file, we can say:
+while(filescanner.hasNextLine()) {              // while the Scanner has a next line
+    String line = filescanner.nextLine();       // save the String as line
+    System.out.println(line);                   // print line and loop through again
+    }
+
+make sure to close FileReader, but not Scanner
+filescanner.close();
+
+.hasNextLine()      // looks for next line
+.next()             // grabs the next String that is seperated by white space
+.nextLine()         // reads lines at a time
+.nextInt()          // reads next int
