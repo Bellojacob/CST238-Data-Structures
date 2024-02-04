@@ -1,0 +1,39 @@
+This is the method to find the maximum value in an array.
+
+1. Let's assume this is our array and it's values:
+int [] myArray = {1,4,6,2,9,6,7,1,3};
+
+2. Next let's create a maximum value integer variable
+int maximumValue = myArray[0];
+
+3. Now let's loop through the array, and it will check if each index is greater than the maximum (one at a time),
+   and if it is greater, then the maximum value variable will be set to whatever that index value is
+ for (int i = 0; i < myArray.length; i++){
+            if (myArray[i] > maximumValue) {
+                maximumValue = myArray[0];
+            }
+        }
+
+4. We can check our code by checking what the value of maximumValue is after the loop is ran
+System.out.println(maximumValue);
+
+
+
+This is the method to find the Minimum value in an array
+
+1. This is our array and our array values:
+int [] myArray = {1,4,6,2,9,6,7,1,3};
+
+ 2. Now let's create a minimum value variable and set it equal to the first value of the array
+ int minimumValue = myArray[0];
+
+ 3. Now let's loop through the array and if the current array index is less than the minimumValue variable
+    value then set the minimumValue to the current index
+for (int i = 0; i < myArray.length; i++){
+            if (myArray[i] < minimumValue){
+                minimumValue = myArray[i];
+            }
+        }
+
+4. We can check our work by printing out the value
+System.out.println(minimumValue);
