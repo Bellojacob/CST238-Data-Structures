@@ -1,1 +1,20 @@
-Holds my notes for class
+There are two ways to make arrays in Java
+
+1. PRE - DETERMINED VALUES ARRAY
+
+int [] myArray = {8,4,6,2,9,6,7,1,3};
+
+Declare the data type
+[]
+Name the array
+Enter the values between the {1,2,3,4,5,6,7,8,9};
+
+2. ENTER VALUES AFTER ARRAY DECLARATION
+
+int [] myArray = new int[3];
+
+Declare the data type
+[]
+Name the array
+Create an array object using = new int[]
+between the last [] is where you enter how many points of data will go into the array
