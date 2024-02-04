@@ -1,0 +1,16 @@
+Conditionals
+
+Conditionals in Java work in the form of if, else if, and else statements.
+
+Conditionals only take boolean values, meaning it is checking if a value is true or false and making a decision based
+on that.
+
+Example:
+    int value = 1;
+        if (value == 2 ){
+            System.out.println("I am 2");
+        } else if (value == 3) {
+            System.out.println("I am 3");
+        } else {
+            System.out.println("I am 1");
+        }
