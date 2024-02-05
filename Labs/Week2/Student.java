@@ -1,3 +1,5 @@
+package Labs.Week2;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,7 +25,7 @@ public class Student {
         return (exam1 + exam2) / 2;
     }
 
-    String toString2(){
+    public String toString(){
         return name + "'s average: " + getAverage();
     }
 
@@ -38,8 +40,8 @@ public class Student {
         Student student1 = new Student(file.next(), file.nextDouble(), file.nextDouble());
         Student student2 = new Student(file.next(), file.nextDouble(), file.nextDouble());
 
-        System.out.println(student1.toString2());
-        System.out.println(student2.toString2());
+        System.out.println(student1.toString());
+        System.out.println(student2.toString());
 
         if (student1.getAverage() > student2.getAverage()){
             System.out.println(student1.name + " has a better score than " + student2.name);

@@ -1,4 +1,4 @@
-/* Title: Lab02-array-class
+package Labs.Week2;/* Title: Lab02-array-class
  * Abstract: This program holds an array of ints and asks the user if they would like to EXIT, Shift to thr right, or
  * shift to the left.
  * Author: Jacob Bello & Arthur Barreau

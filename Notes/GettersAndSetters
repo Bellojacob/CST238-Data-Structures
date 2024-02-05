@@ -1,0 +1,22 @@
+Getter and Setter methods go in the object class
+These methods are used to set and retrieve attributes
+These methods are the correct way to set attributes values rather than ex: car.speed(100);
+
+Instead of saying that, you would say car.setSpeed(100);
+So, instead of setting value straight to speed, you would call the method for setSpeed and pass in the speed value (100);
+
+Essentially,
+let's say we have a class name car
+    Public class Car {
+
+then we have our attributes of car
+    int speed;
+    String model;
+    String color;
+
+Then we can create a constructor for car (set default values for car)
+    car(int speed, String model, String color){
+        this.speed = speed;
+        this.model = model;
+        this.color = color
+}

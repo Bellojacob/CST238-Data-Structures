@@ -1,0 +1,14 @@
+Objects have Attributes and Methods
+For example, a race car object can have attributes of color, model, topSpeed, and weight
+It can also have methods to make it do stuff such as go, stop, or refillGas.
+
+attributes and methods are interactive
+
+A class is a blueprint or a template for an object
+
+FOUR MAIN PRINCIPLES OF OOP (Object-Oriented Programming)
+Encapsulation - hiding hard code from future programmers, basically making program simple
+Inheritance
+Polymorphism
+Message-Passing
+Sometimes Abstraction
