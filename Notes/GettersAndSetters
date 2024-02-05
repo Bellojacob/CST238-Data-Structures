@@ -10,13 +10,19 @@ let's say we have a class name car
     Public class Car {
 
 then we have our attributes of car
-    int speed;
     String model;
-    String color;
+
 
 Then we can create a constructor for car (set default values for car)
-    car(int speed, String model, String color){
-        this.speed = speed;
-        this.model = model;
-        this.color = color
+    car(){
 }
+
+  // Getter
+  public String getModel() {
+    return model;
+  }
+
+   // Setter
+   public void setModel(String newModel) {
+     this.model = newModel;
+   }
