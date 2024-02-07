@@ -1,83 +1,111 @@
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
-public class HW02a_Student{
-    public static void main(String[] args) throws FileNotFoundException {
-        Student tom = new Student("Tom", "1000");
-        tom.quizScores();
+// assignment file/class name
+public class HW02a_Student {
 
-
-    }
-
+    // private class Student
     private static class Student {
-        String name;
-        String id;
-        double quiz1;
-        double quiz2;
-        double quiz3;
-        double quiz4;
-        double quiz5;
+        // initialize private attributes name, id, and array quizScores
+        private String name;
+        private int id;
+        private double[] quizScores;
 
-        Student(String name, String id){
+        // constructor
+        public Student(String name, int id){
+            // set all values of the object to be equal to the values passed in the parameter
             this.name = name;
             this.id = id;
+            this.quizScores = new double[5];
         }
 
-        void quizScores() throws FileNotFoundException {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter input file name: ");
-            String userFile = scanner.nextLine();
-
-            FileReader read = new FileReader(userFile);
-            Scanner file = new Scanner(read);
-            double[] quizScoresArray = new double[30];
-
-            // Skip the first two tokens (name and id)
-            if (file.hasNext()) file.next();
-            if (file.hasNext()) file.next();
-
+        // set array values
+        public void setQuizScores(double[] scores) {
             for (int i = 0; i < 5; i++) {
-                if (file.hasNextDouble()) {
-                    quizScoresArray[i] = file.nextDouble();
-                }
+                this.quizScores[i] = scores[i];
             }
-            for (int i = 0; i < quizScoresArray.length; i++){
-                System.out.println(quizScoresArray[i]);
-            }
-            averageScore(quizScoresArray);
         }
 
-        void averageScore(double[] quizScoresArray){
-            // find the lowest score
-            double lowestScore = quizScoresArray[0];
-
-            for (int i = 1; i < quizScoresArray.length; i++){
-                if (quizScoresArray[i] < lowestScore){
-                    lowestScore = quizScoresArray[i];
+        // set the sum to 0, then find average and save as the sum
+        public double getAverage(){
+            double lowestNum = 999999999;
+            for (int i = 0; i < quizScores.length; i++){
+                if (quizScores[i] < lowestNum){
+                    lowestNum = quizScores[i];
                 }
             }
-            System.out.println("The lowest score is " + lowestScore);
-
-            // total up all the scores in the array
-            // then subtract the lowest score
-            // then average the scores out by 4
-            // so basically knock off the lowest score
 
             double sum = 0;
-            for (int i = 0; i < quizScoresArray.length; i++){
-                sum += quizScoresArray[i];
+            for (int i = 0; i < quizScores.length; i++){
+                sum += quizScores[i];
             }
-
-            System.out.println("The sum is " + sum);
-            double newSum = sum - lowestScore;
-            double quizAverage = newSum/4;
-            System.out.println("The average quiz score is: " + quizAverage);
+            sum -= lowestNum;
+            return sum / 4;
         }
 
+        // toString method to return values of attributes
         public String toString(){
-            return name + " " + id + " " + quiz1 + " " + quiz2 + " " + quiz3 + " " + quiz4 + " " + quiz5;
+            return name + " (" + id + "): " + getAverage();
         }
     }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        // get filename
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter input filename: ");
+        String filename = scanner.nextLine();
+        File file = new File(filename);
+        Scanner fs = new Scanner(file);
+
+        // expected output
+        System.out.println("--------------------------------------------------");
+        System.out.println("Course Report: Quiz Average");
+        System.out.println("--------------------------------------------------");
+
+        // while there is a next line
+        while (fs.hasNextLine()) {
+            // save entire line of txt file as a String file
+            String line = fs.nextLine();
+
+            // check if line == STOP, and if it does break out of the while loop
+            if (line.equals("STOP")){
+                break;
+            }
+            // make an array to hold each part of the line
+            String[] parts = line.split(" ");
+            // if parts is shorter than 7 for whatever reason, or equals STOP then continue
+            if (parts.length < 7 || parts[0].equals("STOP")){
+                continue;
+            }
+            // username should be the first item in the array
+            String name = parts[0];
+            // their id number should be the second part
+            // covert the string value of id into an int
+            int id = Integer.parseInt(parts[1]);
+
+            // init an array to hold quiz scores
+            double[] scores = new double[5];
+            // loop through each quiz score in parts array and add it to scores array
+            for (int i = 0; i < 5; i++) {
+                scores[i] = Double.parseDouble(parts[i + 2]);
+            }
+
+            // init a student object passing the name and id from the txt file
+            Student student = new Student(name, id);
+            // call our setQuizScores method on our object
+            student.setQuizScores(scores);
+
+            // print out the values for our student
+            System.out.println(student);
+        }
+
+        System.out.println("--------------------------------------------------");
+
+        fs.close();
+    }
 }
+
+
+
 
