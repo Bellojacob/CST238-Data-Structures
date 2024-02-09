@@ -1,13 +1,24 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+/* Title: HW02a_Student.java
+ * Abstract: This program looks through a text file that is given by the user, the file contains name, id, and quiz scores
+ * of different students. We look through each line, and if we find the correct student with a matching id, then we take
+ * their quiz scores and add them to an array called quizScores. We then find the lowest score, add all the nums in the
+ * array together and then subtract the lowest score, then divide by 4 to get the average score with one the lowest grade
+ * dropped off. For each student we print out their name, id, and average score.
+ * Author: Jacob Bello
+ * Email: jbello@csumb.edu
+ * Estimate: 2 hours
+ * Date: 02/5/2024
+ */
 
 // assignment file/class name
 public class HW02a_Student {
 
     // private class Student
     private static class Student {
-        // initialize private attributes name, id, and array quizScores
+        // initialize private attributes name, id, and double array quizScores
         private String name;
         private int id;
         private double[] quizScores;
