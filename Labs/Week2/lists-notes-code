@@ -1,0 +1,64 @@
+public class List {
+    private static int DEFAULT_CAPACITY = 10;
+    private int size;
+    private int [] data;
+
+    public List() {
+        size = 0;
+        data = new int[DEFAULT_CAPACITY];
+    }
+
+    public List(int capacity) {
+        size = 0;
+        data = new int[capacity];
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public void insert(int item, int position) {
+        if(size == data.length) {
+            System.out.println("** No space for list element **");
+            return;
+        }
+
+        if(position < 0 || position > size) {
+            System.out.println("** Illegal location to insert " + position + " **");
+            return;
+        }
+
+    }
+
+    public void remove(int position) {
+    }
+
+    public void display() {
+        if(isEmpty()) {
+            System.out.println("Empty list");
+            return;
+        } else {
+            System.out.print("List of size " + size + ": ");
+        }
+
+        for(int i = 0; i < size; i++) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public int find(int value) {
+
+        return -1;
+    }
+
+    public int sum() {
+        int sum = 0;
+        return sum;
+    }
+
+  public boolean append(int value) {
+    return false;
+  }
+
+}

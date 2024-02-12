@@ -1,0 +1,34 @@
+data structures is how we store
+
+arrays are a data type
+
+Lists:
+insert or remove data
+done through methods
+
+later:
+stacks
+queues
+
+to create a list
+inside a class
+
+public class List{
+    private String [] data;
+    private int size;
+
+
+    public List() {
+        data = new String[DEFAULT_CAPACITY]
+        size = 0;
+        }
+
+    public void append(String s){
+
+shift left : iterate up
+shift right : iterate down
+
+shift left
+for(int i = imdex; i < size; i++){
+    data[i] = data[i + 1];
+    }
