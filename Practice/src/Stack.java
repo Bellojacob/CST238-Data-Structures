@@ -26,8 +26,11 @@ public class Stack {
         return top == -1;
     }
 
+    // add / push method
     public void push(int value){
-        if (top <= data.length - 1){
+        // check if Stack isn't full
+        if (top < data.length - 1){
+            // move top forward one position
             ++top;
             data[top] = value;
         } else {
@@ -35,19 +38,23 @@ public class Stack {
         }
     }
 
-   public void pop(){
+    // pop / remove method
+    public void pop(){
+        // check if stack has an element to remove
         if (!isEmpty()){
             top--;
         } else {
-            System.out.println("List Empty Foo");
+            System.out.println("Stack is Empty");
         }
-   }
+    }
 
+    // top method to get item at top of stack or last item in
     public void top(){
+        // make sure we have an item in the stack
         if (!isEmpty()){
             System.out.println(data[top]);
         } else {
-            System.out.println("Stack Empty, No value to grab");
+            System.out.println("List is Empty");
         }
     }
 
@@ -58,12 +65,13 @@ public class Stack {
     }
 
 
-
     public static void main(String[] args) {
         Stack myStack = new Stack();
         myStack.push(25);
         myStack.push(50);
         myStack.push(75);
+
+        myStack.pop();
 
         myStack.top();
 
