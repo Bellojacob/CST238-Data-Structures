@@ -1,3 +1,5 @@
+package Notes;
+
 public class Car {
     private int weight;
 

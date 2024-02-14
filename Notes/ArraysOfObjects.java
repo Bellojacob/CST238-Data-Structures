@@ -1,3 +1,5 @@
+package Notes;
+
 import java.awt.*;
 import java.util.Scanner;
 
