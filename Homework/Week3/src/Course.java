@@ -1,3 +1,14 @@
+/* Title: Course.java
+ * Abstract: This program is a course is a course template which allows user to give the description of a course
+ * including title, number, instructor name, and add student objects or students to the course roster. We can
+ * retrieve each of these values. We can then add or remove students from the roster after words in our main. We then have
+ * a string builder to display all the data in one line. And we show all of this through creating object and calling methods
+ * on them in our Main method.
+ * Author: Jacob Bello
+ * Email: jbello@csumb.edu
+ * Estimate: 2 hours
+ * Date: 02/10/2024
+ */
 public class Course {
     // Course attributes
     private String title;
