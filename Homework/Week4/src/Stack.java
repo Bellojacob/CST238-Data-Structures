@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 /* Title: Stack.java
  * Abstract: This program is added is a Stack Binary converter, we are starting with starting code from class and going
  * to add a static method that takes in a number in base 10 (decimal or 26) and converts it to base 2 (binary or 10101). 

@@ -1,4 +1,4 @@
-public class Stack {
+public class StackPractice {
     // a stack has 3 attributes, a capacity, a top int variable, and an array
     // all must be declared private in the class attributes
     // we make out constructor have two things:
@@ -10,7 +10,7 @@ public class Stack {
     private int[] data;
 
     //constructor
-    public Stack(){
+    public StackPractice(){
         top = -1;
         data = new int[CAPACITY];
     }
@@ -66,15 +66,15 @@ public class Stack {
 
 
     public static void main(String[] args) {
-        Stack myStack = new Stack();
-        myStack.push(25);
-        myStack.push(50);
-        myStack.push(75);
+        StackPractice myStackPractice = new StackPractice();
+        myStackPractice.push(25);
+        myStackPractice.push(50);
+        myStackPractice.push(75);
 
-        myStack.pop();
+        myStackPractice.pop();
 
-        myStack.top();
+        myStackPractice.top();
 
-        myStack.display();
+        myStackPractice.display();
     }
 }

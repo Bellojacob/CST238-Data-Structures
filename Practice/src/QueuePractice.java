@@ -1,4 +1,4 @@
-public class Queue {
+public class QueuePractice {
     // queues are like a line
     // it is First In, First Out
     // the front elements are first in line
@@ -16,7 +16,7 @@ public class Queue {
     private int back;
 
     // constructor
-    public Queue(){
+    public QueuePractice(){
         data = new int[CAPACITY];
         front = 0;
         back = 0;
@@ -67,7 +67,7 @@ public class Queue {
     }
 
     public static void main(String[] args) {
-        Queue myQ = new Queue();
+        QueuePractice myQ = new QueuePractice();
         myQ.enqueue(300);
         myQ.enqueue(239);
         myQ.enqueue(741);
