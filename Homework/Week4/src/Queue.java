@@ -1,4 +1,4 @@
-/* Title: ExtendedQueue.java
+/* Title: Queue.java
  * Abstract: This program takes the extendedQueue solution from the lab, and we are adding 4 method. isSorted, drop,
  * indexUsed, dump. We are also changing the queue capacity to 7. Changing the queue datatype to char, and testing
  * each method.
@@ -7,14 +7,14 @@
  * Estimate: 4 hours
  * Date: 02/18/2024
  */
-public class ExtendedQueue {
+public class Queue {
 
         public static final int QUEUE_CAPACITY = 7;
         private char[] data;
         private int front;
         private int back;
 
-        public ExtendedQueue() {
+        public Queue() {
             data = new char[QUEUE_CAPACITY];
             front = 0;
             back = 0;
@@ -109,15 +109,51 @@ public class ExtendedQueue {
         // also if it is CBA it is sorted backwards
         // if queue contains 0 or 1 elements it is sorted
         // otherwise, queue is not sorted
-//        public boolean isSorted(){
-//            if ()
-//            return false;
-//        }
+        // I am not ignoring case sensitivity because A and a are different ascii values
+        // technically a(97) > A(65)
+        public boolean isSorted(){
+            if (isEmpty() || (back - front == 1)) {
+                return true;
+            }
+            boolean ascendingOrder = true;
+            boolean descendingOrder = true;
 
-        public boolean drop(char value){
+            for (int i = front; i != back; i = (i + 1) % data.length) {
+                int nextIndex = (i + 1) % data.length;
+                if (nextIndex != back) {
+                    if (data[i] > data[nextIndex]) {
+                        ascendingOrder = false;
+                    }
+                    if (data[i] < data[nextIndex]) {
+                        descendingOrder = false;
+                    }
+                }
+            }
 
-            return false;
+            return ascendingOrder || descendingOrder;
+
         }
+
+        public void removeAt(int index){
+            if (index < 0 || index >= data.length){
+                System.out.println("Invalid Index");
+            }
+            for (int i = index; i != back; i = (i+1)% data.length){
+                data[i] = data[(i + 1) % data.length];
+            }
+            back = (back - 1 + data.length) % data.length;
+        }
+
+    public boolean drop(char value){
+        if (!isEmpty()){
+            int index = this.find(value);
+            if (index != -1) {
+                this.removeAt(index);
+                return true;
+            }
+        }
+        return false;
+    }
 
         public boolean indexUsed(int index){
 
@@ -127,6 +163,19 @@ public class ExtendedQueue {
         public void dump(){
 
         }
+
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue('a');
+        q.enqueue('b');
+        q.enqueue('c');
+        q.enqueue('d');
+        q.enqueue('e');
+        System.out.println(q);
+        q.drop('c');
+        System.out.println(q);
+
+    }
     }
 
 
