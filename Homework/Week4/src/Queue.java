@@ -4,7 +4,7 @@
  * each method.
  * Author: Jacob Bello
  * Email: jbello@csumb.edu
- * Estimate: 4 hours
+ * Estimate: 5 hours
  * Date: 02/18/2024
  */
 public class Queue {
@@ -105,18 +105,27 @@ public class Queue {
         return sb.toString();
     }
 
+    // boolean isSorted()
+    // boolean drop(char value)
+    // boolean indexUsed(int index)
+    // dump()
+
     // if queue order is ABC then it is sort, can also be (ABBC or CBAA)
     // also if it is CBA it is sorted backwards
     // if queue contains 0 or 1 elements it is sorted
     // otherwise, queue is not sorted
+    // NOTE:
     // I am not ignoring case sensitivity because A and a are different ascii values
     // technically a(97) > A(65)
+
     public boolean isSorted() {
         if (isEmpty() || (back - front == 1)) {
             return true;
         }
+        // init boolean values
         boolean ascendingOrder = true;
         boolean descendingOrder = true;
+
 
         for (int i = front; i != back; i = (i + 1) % data.length) {
             int nextIndex = (i + 1) % data.length;
@@ -134,36 +143,46 @@ public class Queue {
 
     }
 
-    public void removeAt(int index) {
-        if (index < 0 || index >= data.length) {
-            System.out.println("Invalid Index");
-        }
-        for (int i = index; i != back - 1; i = (i + 1) % data.length) {
-            data[i] = data[(i + 1) % data.length];
-        }
-        back = (back - 1 + data.length) % data.length;
-    }
-
+    // removes a char
+    // if it successfully drops the char, return true
+    // if unsuccessful then return false
+    // if the char repeats, only drop the first
     public boolean drop(char value) {
         if (!isEmpty()) {
-            int index = this.find(value);
+            int index = this.find(value) - 1;
 
             if (index != -1) {
-                this.removeAt(index - 1);
+                if (index < 0 || index >= data.length) {
+                    System.out.println("Invalid Index");
+                }
+
+                for (int i = index; i != back - 1; i = (i + 1) % data.length) {
+                    data[i] = data[(i + 1) % data.length];
+                }
+                back = (back - 1 + data.length) % data.length;
                 return true;
             }
         }
         return false;
     }
 
+    // return true if index is valid and false if invalid
     public boolean indexUsed(int index) {
-        if (index >= 0 && index < back) {
-            return true;
+        if (front <= back) {
+            // If front is less than or equal to back, indexes in use are from front to back - 1
+            return index >= front && index < back;
+        } else {
+            // If front is greater than back, indexes in use are from front to QUEUE_CAPACITY - 1 and from 0 to back - 1
+            return index >= front || index < back;
         }
-        return false;
     }
 
+
     public void dump() {
+        // print out front and back
+        System.out.println("front: " + front);
+        System.out.println("back: " + back);
+        // print out data
         for (int i = 0; i < data.length; i++) {
             if (i >= front && i < back) {
                 System.out.print(data[i] + " ");
@@ -174,25 +193,17 @@ public class Queue {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        Queue q = new Queue();
-        q.enqueue('a');
-        q.enqueue('b');
-        q.enqueue('c');
-        q.enqueue('d');
-        q.enqueue('e');
-        q.enqueue('f');
-
-
-        System.out.println(q.toString());
-        q.drop('e');
-        System.out.println(q.toString());
-
-        System.out.println(q.indexUsed(3));
-
-        q.dump();
-
-    }
+//    public static void main(String[] args) {
+//        Queue q = new Queue();
+//        q.enqueue('a');
+//        q.enqueue('b');
+//        q.enqueue('c');
+//        q.enqueue('d');
+//        q.enqueue('e');
+//        q.enqueue('f');
+//
+//
+//    }
 }
 
 
