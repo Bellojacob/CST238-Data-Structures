@@ -75,48 +75,35 @@ public class HW01a_Distinct {
         System.out.println("Min Number:  " + minimumNumber);
         System.out.println("Number\t"+"Count");
 
-        // start of method to print out each number and how many times it is used.
-
-        // look at each element in the array
-        // this what an example array looks like
-        // myArray [1, 3, 2, 3, 2]
-        // second array [1,3,2,3,2]
-
-
         int [] secondArray = new int[firstNumber];
         // make a copy of the myArray into secondArray
         for (i = 0; i < myArray.length; i++){
             secondArray[i] = myArray[i];
         }
 
-
-        boolean[] printedNumbers = new boolean[maxNumber + 1];
+        int offset = -minimumNumber;
+        boolean[] printedNumbers = new boolean[offset + maxNumber + 1];
         // iterate through first array
         for ( i = 0; i < myArray.length; i++) {
             // make current num the current position in myArray
             int currentNum = myArray[i];
 
-            // Check if currentNum is non-negative
-            if (currentNum >= 0) {
-                if (!printedNumbers[currentNum]) {
-                    // init matching array variable
-                    int arrayMatch = 0;
-                    // nested loop to go through secondArray, start at pos myArray[i], and look at every element in
-                    // secondArray. If currentNum equals a position in secondArray then iterate arrayMatch
-                    for (int j = 0; j < secondArray.length; j++) {
-                        if (currentNum == secondArray[j]) {
-                            arrayMatch++;
-                        }
+            if (!printedNumbers[currentNum + offset]) {
+                // init matching array variable
+                int arrayMatch = 0;
+                // nested loop to go through secondArray, start at pos myArray[i], and look at every element in
+                // secondArray. If currentNum equals a position in secondArray then iterate arrayMatch
+                for (int j = 0; j < secondArray.length; j++) {
+                    if (currentNum == secondArray[j]) {
+                        arrayMatch++;
                     }
-                    // print current myArray element along with the amount of times arrayMatch was iterated.
-                    System.out.println(myArray[i] + "\t\t" + arrayMatch);
-                    // when we print a num, mark that number as true to avoid duplicating/printing that num again
-                    printedNumbers[currentNum] = true;
                 }
+                // print current myArray element along with the amount of times arrayMatch was iterated.
+                System.out.println(myArray[i] + "\t\t" + arrayMatch);
+                // when we print a num, mark that number as true to avoid duplicating/printing that num again
+                printedNumbers[currentNum + offset] = true;
             }
         }
-
-
 
         bufferedReader.close();
         fileReader.close();
