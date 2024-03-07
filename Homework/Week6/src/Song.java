@@ -1,3 +1,12 @@
+/* Title: Song.java
+ * Abstract: This program creates a song class that holds attributes such as title, artist, length, and year. Also,
+ * has a constructor so user can create song objects, an equals method to show if an object is exactly the same as
+ * another object, and a toString method to print out attributes in a specific organized way.
+ * Author: Jacob Bello
+ * Email: jbello@csumb.edu
+ * Estimate: 1 hour
+ * Date: 03/5/2024
+ */
 public class Song {
     //attributes
     private String title;
@@ -5,7 +14,12 @@ public class Song {
     private int length;
     private int year;
 
-    public Song(String title, String artist, int length, int year) {
+    // on the hw instructions it says this is the correct order
+    //public Song(String title, String artist, **int length, int year**)
+    // however on the example test code it is actually like this:
+    // public Song(String title, String artist, **int year,int length**)
+    // I went with the example test code
+    public Song(String title, String artist, int year, int length) {
         this.title = title;
         this.artist = artist;
         this.length = length;
@@ -44,9 +58,9 @@ public class Song {
         int minutes = length / 60;
         int seconds = length % 60;
 
-            return title + " (" + artist + ", " + year + ") " + minutes + ":" + String.format("%02d", seconds);
-        }
+        return title + " (" + artist + ", " + year + ") " + minutes + ":" + String.format("%02d", seconds);
     }
+}
 
 
 
