@@ -1,3 +1,14 @@
+/* Title: HW05A.java
+ * Abstract: This program is the first part of HW Wk 7, firstly we will create a file object and a scanner object that takes
+ * the file, the first int in the file will be the size of the file, and we will create an array of that size. Then as
+ * long as the file has items left, we will add those items (ints) to the newly created array. Then we create a
+ * mergeSort method which will merge the two arrays together numerically. (least to greatest). And then return the
+ * sorted array.
+ * Author: Jacob Bello
+ * Email: jbello@csumb.edu
+ * Estimate: 2 hour
+ * Date: 03/11/2024
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -27,7 +38,7 @@ public class HW05A {
         int[] newArray = new int[a.length + b.length];
         int i = 0, j = 0, k = 0;
 
-        // Merge arrays a and b
+        // merge arrays a and b
         while (i < a.length && j < b.length) {
             if (a[i] <= b[j]) {
                 newArray[k] = a[i];
@@ -39,14 +50,14 @@ public class HW05A {
             k++;
         }
 
-        // Copy remaining elements of a, if any
+
         while (i < a.length) {
             newArray[k] = a[i];
             i++;
             k++;
         }
 
-        // Copy remaining elements of b, if any
+
         while (j < b.length) {
             newArray[k] = b[j];
             j++;
