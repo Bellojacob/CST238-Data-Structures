@@ -1,5 +1,7 @@
-import java.util.Random;
+package Practice.Sorting.src;
 
+import java.util.Random;
+// sort and search file
 public class Sort {
 
     public static void main(String[] args) {
@@ -58,7 +60,7 @@ public class Sort {
                 break;
             }
 
-            }
+        }
 
         // now let's implement a binary search
 
@@ -79,6 +81,5 @@ public class Sort {
             }
         }
         System.out.println("In our binary search we found " + target + " at position index " + position );
-        }
     }
-
+}

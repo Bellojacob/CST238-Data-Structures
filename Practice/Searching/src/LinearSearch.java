@@ -1,3 +1,5 @@
+package Practice.Searching.src;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,4 +43,6 @@ public class LinearSearch {
         }
         return "We did not find " + value;
     }
+
+
 }
