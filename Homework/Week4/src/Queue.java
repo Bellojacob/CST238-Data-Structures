@@ -1,4 +1,4 @@
-/* Title: QueueOld.java
+/* Title: Queue.java
  * Abstract: This program takes the extendedQueue solution from the lab, and we are adding 4 method. isSorted, drop,
  * indexUsed, dump. We are also changing the queue capacity to 7. Changing the queue datatype to char, and testing
  * each method.
