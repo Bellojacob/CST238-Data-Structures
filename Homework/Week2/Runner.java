@@ -5,7 +5,7 @@ import java.util.Collections;
 public class Runner {
     public static void main(String[] args) throws FileNotFoundException {
 //        HW06A h1 = new HW06A();
-//        h1.readFromFile();
+//        h1.readFromFile()
 
         Time t1 = new Time(12, 55);
         Time t2 = new Time(29, 34);
