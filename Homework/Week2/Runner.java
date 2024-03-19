@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Runner {
     public static void main(String[] args) throws FileNotFoundException {
@@ -29,6 +30,13 @@ public class Runner {
             System.out.println(s);
         }
 
+        System.out.println();
+
+        Collections.sort(al);
+
+        for (Time s : al){
+            System.out.println(s);
+        }
 
 
 
