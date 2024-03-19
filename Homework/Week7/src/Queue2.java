@@ -10,13 +10,13 @@
  * Estimate: 3 hour
  * Date: 03/11/2024
  */
-public class Queue {
+public class Queue2 {
     public static final int QUEUE_CAPACITY = 6;
     private int[] data;
     private int front;
     private int back;
 
-    public Queue() {
+    public Queue2() {
         data = new int[QUEUE_CAPACITY];
         front = 0;
         back = 0;
@@ -28,11 +28,10 @@ public class Queue {
 
     public void enqueue(int value) {
         int newBack = (back + 1) % data.length;
-        if (newBack == front || (!isEmpty() && back==0 )) {
+        if(newBack == front) {
             resize();
             newBack = (back + 1) % data.length;
         }
-
         data[back] = value;
         back = newBack;
     }
@@ -53,7 +52,6 @@ public class Queue {
         if (size < 0) {
             size += data.length;
         }
-
         return size;
     }
 
@@ -61,20 +59,18 @@ public class Queue {
         int newSize = data.length * 2;
         int[] temp = new int[newSize];
         int size = getSize();
-
         for (int i = 0; i < size; i++) {
-            temp[i + front + data.length] = data[(i + front) % data.length];
+            temp[i] = data[(front + i) % data.length];
         }
-        front += data.length;
-        back = 0;
+        front = 0; // Set front to 0 after resizing
+        back = size; // Set back to the size of the queue before resizing
         data = temp;
     }
-
 
     public String printable() {
         StringBuilder sb = new StringBuilder();
         sb.append("(f: ").append(front).append(", b: ").append(back).append(") Contents: ");
-        for(int i = 0; i < data.length; i++) {
+        for (int i = 0; i < data.length; i++) {
             sb.append(data[i]).append(" ");
         }
         return sb.toString();
