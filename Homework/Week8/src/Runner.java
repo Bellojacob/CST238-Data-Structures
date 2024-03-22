@@ -4,13 +4,13 @@ import java.util.Collections;
 
 public class Runner {
     public static void main(String[] args) throws FileNotFoundException {
-//        HW06A h1 = new HW06A();
-//        h1.readFromFile()
+        HW06A h1 = new HW06A();
+        h1.readFromFile();
 
-        Time t1 = new Time(12, 55);
-        Time t2 = new Time(29, 34);
-        Time t3 = new Time(3, 45);
-        Time t4 = new Time(22, 33);
+//        Time t1 = new Time(12, 55);
+//        Time t2 = new Time(29, 34);
+//        Time t3 = new Time(3, 45);
+//        Time t4 = new Time(22, 33);
 //        System.out.println(t1.toStandard() + " - " + t1);
 //        System.out.println(t2.toStandard() + " - " + t2);
 //        System.out.println(t3.toStandard() + " - " + t3);
@@ -21,22 +21,22 @@ public class Runner {
 //        Time t7 = new Time(12);
 //        System.out.println(t6.toStandard() + " - " + t6);
 //        System.out.println(t7.toStandard() + " - " + t7);
-        ArrayList<Time> al = new ArrayList<>();
-        al.add(t1);
-        al.add(t2);
-        al.add(t3);
-        al.add(t4);
-        for (Time s : al){
-            System.out.println(s);
-        }
-
-        System.out.println();
-
-        Collections.sort(al);
-
-        for (Time s : al){
-            System.out.println(s);
-        }
+//        ArrayList<Time> al = new ArrayList<>();
+//        al.add(t1);
+//        al.add(t2);
+//        al.add(t3);
+//        al.add(t4);
+//        for (Time s : al){
+//            System.out.println(s);
+//        }
+//
+//        System.out.println();
+//
+//        Collections.sort(al);
+//
+//        for (Time s : al){
+//            System.out.println(s);
+//        }
 
 
 

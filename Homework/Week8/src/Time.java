@@ -1,9 +1,18 @@
+/* Title: Time.java
+ * Abstract: This program will create a time class that has 3 constructors, a default, an hours, and an hours and minutes,
+ * and if time invalid then set time to 0,have method to get String of time in military time, toStandard(),
+ * have method to get String of time in Standard time, toMilitary(), have method to add two time objects together
+ * and return a new time object, add()
+ * For part C, we will implement the Comparable declaration, and add a toMinutes method which converts all of the times
+ * into minutes. The Comparable will sort the times by minutes. It says to add test code, so I added test code to my
+ * runner/main class, which is not included.
+ * Author: Jacob Bello
+ * Email: jbello@csumb.edu
+ * Estimate: 3 hours
+ * Date: 03/18/2024
+ */
+
 public class Time implements Comparable<Time>{
-    // create a time class that has 3 constructors, a default, an hours, and an hours and minutes,
-    // if time invalid then set time to 0
-    // have method to get String of time in military time, toStandard()
-    // have method to get String of time in Standard time, toMilitary()
-    // have method to add two time objects together and return a new time object, add()
 
     private int hours;
     private int minutes;
@@ -52,6 +61,11 @@ public class Time implements Comparable<Time>{
 
     }
 
+    public int differenceInMinutes(Time other) {
+        int thisMinutes = this.toMinutes();
+        int otherMinutes = other.toMinutes();
+        return Math.abs(thisMinutes - otherMinutes);
+    }
     public String toMilitary(){
         int militaryHours = hours;
         int militaryMinutes = minutes;
